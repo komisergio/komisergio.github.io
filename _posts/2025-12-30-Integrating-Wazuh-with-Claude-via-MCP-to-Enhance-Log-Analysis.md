@@ -191,7 +191,7 @@ To test, ask Claude a question about Wazuh. For example: “How many Wazuh agent
 
 ## Illustrated Use Cases
 
-prompt 1:
+## prompt 1:
 
 ````prompt
 As you access my Wazuh SIEM environment, act as a security analyst. 
@@ -202,7 +202,8 @@ As you access my Wazuh SIEM environment, act as a security analyst.
 ```````
 <img width="1918" height="920" alt="prompt 1 result 1" src="https://github.com/user-attachments/assets/3fe3b822-f5db-4ca3-bb63-33a5047bba62" />
 
-Results :
+## Results :
+
 
 <img width="1918" height="920" alt="prompt 1 result 2" src="https://github.com/user-attachments/assets/4bcf0a93-ab1f-4d7b-915d-408fbdb7b97c" />
 
