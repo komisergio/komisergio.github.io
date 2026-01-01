@@ -22,7 +22,8 @@ In our demonstration, the architecture is based on:
 
 - **Wazuh Agent Windows 11**: a universal agent installed on a Windows 11 workstation and registered with the Wazuh manager. This agent retrieves local events (logs, security, etc.) and sends them to the server. For example, the agent is installed via the Wazuh MSI executable from the command line (e.g., `wazuh-agent-*.msi /q WAZUH_MANAGER="IP_of_manager"` [documentation.wazuh.com](https://documentation.wazuh.com/current/installation-guide/wazuh-agent/wazuh-agent-package-windows.html#:~:text=1,is%20in%20your%20working%20directory)), and then started (`net start wazuhsvc`). After registration, it should be visible as active in the dashboard
 
-<img width="1919" height="919" alt="Windows 11 agnet wazuh" src="https://github.com/user-attachments/assets/f33080e2-688a-4dec-a7a1-d11207c1130e" />
+<img width="1919" height="952" alt="dashbord wazuh" src="https://github.com/user-attachments/assets/83db27a6-1077-40ae-98dd-da6253734223" />
+
 
 - **Claude Desktop**: Anthropic's desktop application for interacting with the Claude model (conversational AI). We install it on the same Ubuntu (Debian/Ubuntu version) to run the MCP agent locally. Once launched, Claude Desktop offers a user-friendly interface for asking questions in natural language.
 
@@ -30,8 +31,6 @@ In our demonstration, the architecture is based on:
 
 
 - **Wazuh MCP Server**: a bridging server written in Rust (project mcp-server-wazuh). It acts as a “translator”: it queries the Wazuh API and indexer, formats the data, and sends it back to Claude via MCP [atricore.com](https://www.atricore.com/blog/wazuh-mcp-server-bridging-siem-data-with-ai-assistants#:~:text=The%20Wazuh%20MCP%20Server%20acts,understand%20and%20work%20with%20naturally).
-
-<img width="1919" height="952" alt="dashbord wazuh" src="https://github.com/user-attachments/assets/83db27a6-1077-40ae-98dd-da6253734223" />
 
 Overall, the Windows agent sends its logs to the Wazuh Ubuntu server. Claude Desktop then queries this Ubuntu server locally, via the MCP process, to obtain the requested information. The MCP protocol is a standard that allows Claude Desktop to launch a local server (our `mcp-server-wazuh`) and exchange data securely. This topology simplifies local testing, but it is also possible to deploy MCP on another host or in a cluster if needed.
 
@@ -147,24 +146,22 @@ The MCP configuration file is located by default in `~/.config/Claude/claude_des
 Modify it (or create it) to include an `mcpServers` block for Wazuh. For example:
 
 ````json
-{
-  "mcpServers": {
-    "wazuh": {
-      "command": "/home/ubuntu/mcp-server-wazuh/target/release/mcp-server-wazuh",
-      "args": [],
-      "env": {
-        "WAZUH_API_HOST": "localhost",
-        "WAZUH_API_PORT": "55000",
-        "WAZUH_API_USERNAME": "wazuh",
-        "WAZUH_API_PASSWORD": "your_password",
-        "WAZUH_INDEXER_HOST": "localhost",
-        "WAZUH_INDEXER_PORT": "9200",
-        "WAZUH_INDEXER_USERNAME": "admin",
-        "WAZUH_INDEXER_PASSWORD": "admin",
-        "WAZUH_VERIFY_SSL": "false",
-        "WAZUH_TEST_PROTOCOL": "https",
-        "RUST_LOG": "info"
-      }
+"mcpServers": {
+  "wazuh": {
+    "command": "/path/to/mcp-server-wazuh",
+    "args": [],
+    "env": {
+      "WAZUH_API_HOST": "your_wazuh_manager_api_host",
+      "WAZUH_API_PORT": "55000",
+      "WAZUH_API_USERNAME": "your_wazuh_api_user",
+      "WAZUH_API_PASSWORD": "your_wazuh_api_password",
+      "WAZUH_INDEXER_HOST": "your_wazuh_indexer_host",
+      "WAZUH_INDEXER_PORT": "9200",
+      "WAZUH_INDEXER_USERNAME": "your_wazuh_indexer_user",
+      "WAZUH_INDEXER_PASSWORD": "your_wazuh_indexer_password",
+      "WAZUH_VERIFY_SSL": "false",
+      "WAZUH_TEST_PROTOCOL": "https",
+      "RUST_LOG": "info"
     }
   }
 }
