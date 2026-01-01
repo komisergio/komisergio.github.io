@@ -178,9 +178,6 @@ In this example, we specify the path to the MCP binary and define the necessary 
 
 <img width="1919" height="943" alt="claude desktop interface" src="https://github.com/user-attachments/assets/344eed02-c9ac-468f-8ef1-172d69dab525" />
 
-
-
-
 #### Verifying the Claude-Wazuh Link
 
 Go back to **Claude Desktop > Developer**. You should see a status “**wazuh running**” indicating that the MCP server has started correctly (as in the screenshot below). Then, in the **Connectors** tab of the main menu, toggle the **Wazuh** switch to allow the connection.
@@ -203,8 +200,27 @@ As you access my Wazuh SIEM environment, act as a security analyst.
 - Suggest improvements to security posture and SIEM configuration when relevant.  
 - Always structure responses in a concise, actionable format (summary + detailed insights + recommendations).  
 ```````
+<img width="1918" height="920" alt="prompt 1 result 1" src="https://github.com/user-attachments/assets/3fe3b822-f5db-4ca3-bb63-33a5047bba62" />
 
-Screenshots are attached.
+Results :
+
+<img width="1918" height="920" alt="prompt 1 result 2" src="https://github.com/user-attachments/assets/4bcf0a93-ab1f-4d7b-915d-408fbdb7b97c" />
+
+<img width="1918" height="920" alt="prompt 1 result 3" src="https://github.com/user-attachments/assets/2f5bf616-34ec-450b-a639-60aabaef375d" />
+
+<img width="1918" height="920" alt="prompt 1 result 4" src="https://github.com/user-attachments/assets/36d3a9fa-96b5-4363-a4b0-a4d904a8e12f" />
+
+<img width="1918" height="920" alt="prompt 1 result 5" src="https://github.com/user-attachments/assets/9ecb71e0-5721-43af-b09d-cda1e118916a" />
+
+<img width="1918" height="920" alt="prompt 1 result 6" src="https://github.com/user-attachments/assets/ec058707-b263-4f6b-9fbe-5bbe056d7680" />
+
+<img width="1918" height="920" alt="prompt 1 result 7" src="https://github.com/user-attachments/assets/b95eb4fc-619e-45e9-819d-778653ab196c" />
+
+<img width="1918" height="920" alt="prompt 1 result 8" src="https://github.com/user-attachments/assets/630070fb-ec87-45f7-9aac-3d4cd5d97040" />
+
+<img width="1918" height="920" alt="prompt 1 result 9" src="https://github.com/user-attachments/assets/6190aa7a-123f-4edc-b4d4-3696433fa1a8" />
+
+
 
 prompt 2:
 
@@ -247,12 +263,8 @@ This article has shown how to associate **Wazuh** and **Claude Desktop** via the
 
 As calls to action: explore other AI assistants (e.g., ChatGPT with plugins, or Llama via Ollama) with Wazuh, share your scripts and use cases within the community, and test new ideas (like semantic log analysis via embeddings). Ultimately, the goal is to integrate AI responsibly into the SOC workflow (dynamic playbooks, automated reports, advanced detection). But let’s not forget: human expertise remains central. Claude Desktop is a powerful tool, to be used judiciously and monitored.
 
-**Sources:**
+**References:**
 
 Wazuh documentation for installation and configuration [documentation.wazuh.com](https://documentation.wazuh.com/current/installation-guide/wazuh-server/step-by-step.html#:~:text=2) [documentation.wazuh.com](https://documentation.wazuh.com/current/installation-guide/wazuh-agent/wazuh-agent-package-windows.html#:~:text=1,is%20in%20your%20working%20directory); Atricore technical blog on Wazuh MCP [atricore.com](https://www.atricore.com/blog/wazuh-mcp-server-bridging-siem-data-with-ai-assistants#:~:text=The%20Wazuh%20MCP%20Server%20addresses,data%20and%20automated%20analysis%20workflows) [atricore.com](https://www.atricore.com/blog/wazuh-mcp-server-bridging-siem-data-with-ai-assistants#:~:text=The%20Wazuh%20MCP%20Server%20acts,understand%20and%20work%20with%20naturally) [atricore.com](https://www.atricore.com/blog/wazuh-mcp-server-bridging-siem-data-with-ai-assistants#:~:text=Automated%20alert%20triage%3A%20AI%20assistants,reviewing%20hundreds%20of%20alerts%20daily) [atricore.com](https://www.atricore.com/blog/wazuh-mcp-server-bridging-siem-data-with-ai-assistants#:~:text=Traditional%20SIEM%20workflows%20require%20specialized,a%20short%20period%20of%20time); GitHub repositories for Claude Desktop [github.com](https://github.com/aaddrick/claude-desktop-debian?tab=readme-ov-file#:~:text=For%20) and Wazuh MCP [augmentcode.com](https://www.augmentcode.com/mcp/mcp-server-wazuh#:~:text=2) [augmentcode.com](https://www.augmentcode.com/mcp/mcp-server-wazuh#:~:text=1).
 
-Citations
 
-Wazuh MCP server: Bridging SIEM data with AI assistants
-
-https://www.atricore.com/blog/wazuh-mcp-server-bridging-siem-data-with-ai-assistants
