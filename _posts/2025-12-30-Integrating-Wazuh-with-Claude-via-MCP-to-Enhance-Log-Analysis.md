@@ -133,7 +133,18 @@ The compiled binary can then be found in `target/release/mcp-server-wazuh`. (Ano
 
 #### Configuring the `claude_desktop_config.json` File
 
-Now you need to tell Claude Desktop how to launch this MCP server and with what options. In **Claude Desktop > File > Settings > Developer**, click on **Edit Config**. The MCP configuration file is located by default in `~/.config/Claude/claude_desktop_config.json` [github.com](https://github.com/aaddrick/claude-desktop-debian?tab=readme-ov-file#:~:text=Model%20Context%20Protocol%20settings%20are,stored%20in). Modify it (or create it) to include an `mcpServers` block for Wazuh. For example:
+Now you need to tell Claude Desktop how to launch this MCP server and with what options. In **Claude Desktop > File > Settings > Developer**, click on **Edit Config**. 
+
+<img width="1918" height="920" alt="Claude MCP configuration Step 1" src="https://github.com/user-attachments/assets/46a838ec-79b6-497f-a90c-71dd20d51a34" />
+
+<img width="1918" height="920" alt="Claude MCP configuration Step 2" src="https://github.com/user-attachments/assets/ed709ced-2b5e-4010-8ece-46915b657b39" />
+
+
+
+The MCP configuration file is located by default in `~/.config/Claude/claude_desktop_config.json` [github.com](https://github.com/aaddrick/claude-desktop-debian?tab=readme-ov-file#:~:text=Model%20Context%20Protocol%20settings%20are,stored%20in).
+
+
+Modify it (or create it) to include an `mcpServers` block for Wazuh. For example:
 
 ````json
 {
@@ -163,11 +174,21 @@ Now you need to tell Claude Desktop how to launch this MCP server and with what 
 
 In this example, we specify the path to the MCP binary and define the necessary environment variables (host, ports, users/passwords for the Wazuh API and indexer) [augmentcode.com](https://www.augmentcode.com/mcp/mcp-server-wazuh#:~:text=1). Save this file and restart Claude Desktop.
 
+<img width="1918" height="920" alt="Claude MCP configuration Step 3" src="https://github.com/user-attachments/assets/9ca8242c-010d-4738-a8fe-520496362c2c" />
+
+<img width="1919" height="943" alt="claude desktop interface" src="https://github.com/user-attachments/assets/344eed02-c9ac-468f-8ef1-172d69dab525" />
+
+
+
+
 #### Verifying the Claude-Wazuh Link
 
 Go back to **Claude Desktop > Developer**. You should see a status “**wazuh running**” indicating that the MCP server has started correctly (as in the screenshot below). Then, in the **Connectors** tab of the main menu, toggle the **Wazuh** switch to allow the connection.
 
-_Figure: After configuration, Claude Desktop displays “wazuh running” in the Developer settings, and the Wazuh connector is enabled. The MCP bridge is online._
+<img width="1918" height="920" alt="Claude MCP configuration Step 5" src="https://github.com/user-attachments/assets/e46059bc-b3d8-4ccf-a5fd-d828428b550a" />
+
+<img width="1918" height="920" alt="Claude MCP configuration Step 6" src="https://github.com/user-attachments/assets/2dee87d1-06b2-4f7a-8e0d-623a7bd555c8" />
+
 
 To test, ask Claude a question about Wazuh. For example: “How many Wazuh agents do you have and how many critical alerts are present?” Claude will invoke the corresponding MCP function (e.g., `get_wazuh_alert_summary`) and return the result. If it responds coherently (in summary, it should list the number of active agents and critical alerts detected), then the integration works.
 
