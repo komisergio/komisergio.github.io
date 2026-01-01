@@ -228,7 +228,6 @@ As you access my Wazuh SIEM environment, act as a security analyst.
 ## prompt 2
 
 ````prompt
-dashboard.
 Create an executive-level security dashboard using Wazuh SIEM data from the Windows 11 workstation.  
 The dashboard should present information in simple, non-technical language with easy-to-understand indicators.  
 Focus on the following elements:
