@@ -158,8 +158,8 @@ Now you need to tell Claude Desktop how to launch this MCP server and with what 
   }
 }
 `````
+<img width="1918" height="920" alt="Claude MCP configuration Step 4" src="https://github.com/user-attachments/assets/f49eb72e-7ff4-498d-bc47-a233e24ae446" />
 
-_Figure: config.json_
 
 In this example, we specify the path to the MCP binary and define the necessary environment variables (host, ports, users/passwords for the Wazuh API and indexer) [augmentcode.com](https://www.augmentcode.com/mcp/mcp-server-wazuh#:~:text=1). Save this file and restart Claude Desktop.
 
