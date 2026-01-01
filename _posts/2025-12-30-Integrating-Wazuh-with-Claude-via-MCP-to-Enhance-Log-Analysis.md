@@ -1,6 +1,6 @@
 ---
 title: Integrating Wazuh with Claude via MCP To Enhance Log Analysis
-date: 2025-12-30 05:12 +0000
+date: 2026-01-01 19:00 +0000
 categories: [Blog]
 tags: [blog]
 math: true
