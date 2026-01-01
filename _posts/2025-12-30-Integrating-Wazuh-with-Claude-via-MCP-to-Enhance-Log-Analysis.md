@@ -186,12 +186,11 @@ Go back to **Claude Desktop > Developer**. You should see a status “**wazuh ru
 
 <img width="1918" height="920" alt="Claude MCP configuration Step 6" src="https://github.com/user-attachments/assets/2dee87d1-06b2-4f7a-8e0d-623a7bd555c8" />
 
-
 To test, ask Claude a question about Wazuh. For example: “How many Wazuh agents do you have and how many critical alerts are present?” Claude will invoke the corresponding MCP function (e.g., `get_wazuh_alert_summary`) and return the result. If it responds coherently (in summary, it should list the number of active agents and critical alerts detected), then the integration works.
 
 ## Illustrated Use Cases
 
-## prompt 1:
+## prompt 1
 
 ````prompt
 As you access my Wazuh SIEM environment, act as a security analyst. 
@@ -202,7 +201,7 @@ As you access my Wazuh SIEM environment, act as a security analyst.
 ```````
 <img width="1918" height="920" alt="prompt 1 result 1" src="https://github.com/user-attachments/assets/3fe3b822-f5db-4ca3-bb63-33a5047bba62" />
 
-## Results :
+## Results 
 
 
 <img width="1918" height="920" alt="prompt 1 result 2" src="https://github.com/user-attachments/assets/4bcf0a93-ab1f-4d7b-915d-408fbdb7b97c" />
@@ -221,9 +220,12 @@ As you access my Wazuh SIEM environment, act as a security analyst.
 
 <img width="1918" height="920" alt="prompt 1 result 9" src="https://github.com/user-attachments/assets/6190aa7a-123f-4edc-b4d4-3696433fa1a8" />
 
+<img width="1918" height="920" alt="prompt 1 result 10" src="https://github.com/user-attachments/assets/84edba64-e14c-4fad-b799-e35a523ffc42" />
+
+<img width="1918" height="920" alt="prompt 1 result 11" src="https://github.com/user-attachments/assets/bce2d371-3fa5-483e-afeb-8b1bf02cbfd7" />
 
 
-prompt 2:
+## prompt 2
 
 ````prompt
 dashboard.
@@ -239,8 +241,19 @@ Focus on the following elements:
 
 Structure the output as a concise, executive summary with visual-style indicators (e.g., traffic light colors, arrows, or simple icons).
 ```````
+<img width="1918" height="920" alt="prompt 2 result 1" src="https://github.com/user-attachments/assets/8418e643-26b4-4be1-aaad-3979eb28c001" />
 
-Screenshots are attached.
+## Results 
+
+<img width="1918" height="920" alt="prompt 2 result 2" src="https://github.com/user-attachments/assets/e925e5d8-7a78-4009-acd6-35bb00a11f1c" />
+
+<img width="1918" height="920" alt="prompt 2 result 3" src="https://github.com/user-attachments/assets/4ee8cc45-62c2-4463-baed-9afdd648860a" />
+
+<img width="1918" height="920" alt="prompt 2 result 4" src="https://github.com/user-attachments/assets/e92909be-4057-4967-b42f-3e74c5c5a487" />
+
+<img width="1918" height="920" alt="prompt 2 result 5" src="https://github.com/user-attachments/assets/bf6f5311-0342-4892-95e6-0ca74f9a8db7" />
+
+<img width="1918" height="920" alt="prompt 2 result 6" src="https://github.com/user-attachments/assets/13ffe4d2-5d26-4c0a-aaac-90ec2f69fa2c" />
 
 ## Security and Best Practices
 
