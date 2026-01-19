@@ -16,7 +16,7 @@ In the fast-evolving world of cybersecurity, SOC teams often find themselves bur
 
 In our demonstration, the architecture is based on:
 
-- **Ubuntu 24.04 Server** hosting Wazuh components (manager, Wazuh indexer, Wazuh dashboard). The _Wazuh Manager_ collects logs from agents and generates alerts [documentation.wazuh.com](https://documentation.wazuh.com/current/installation-guide/wazuh-server/step-by-step.html#:~:text=Install%20and%20configure%20the%20Wazuh,events%20to%20the%20Wazuh%20indexer). The _Wazuh Indexer_ stores events, and the _Wazuh Dashboard_ provides the graphical interface for visualization. The manager exposes a secure REST API (by default on port 55000).
+- **Ubuntu 24.04 Server** hosting Wazuh components (Wazuh server, Wazuh indexer, Wazuh dashboard). The _Wazuh Manager_ (composed of the Wazuh manager and Filebeat) collects logs from agents and generates alerts [documentation.wazuh.com](https://documentation.wazuh.com/current/installation-guide/wazuh-server/step-by-step.html#:~:text=Install%20and%20configure%20the%20Wazuh,events%20to%20the%20Wazuh%20indexer). The _Wazuh Indexer_ stores events, and the _Wazuh Dashboard_ provides the graphical interface for visualization. The manager exposes a secure REST API (by default on port 55000).
 
 <img width="1919" height="917" alt="Ubuntu Interface" src="https://github.com/user-attachments/assets/5c9ad156-79e8-47bc-a738-3368ec339263" />
 
@@ -89,7 +89,7 @@ apt update
 ``````
 <img width="1917" height="922" alt="Wazuh Installation avec le script sh" src="https://github.com/user-attachments/assets/f47a3222-6001-46e3-b072-ea6c0b4e60a7" />
 
-This screenshot illustrates an automated Wazuh installation script on Ubuntu. In output, you should be able to access the web interface of the dashboard (e.g., https://IP_Wazuh:443 with the user `admin`).
+This screenshot illustrates an automated Wazuh installation script on Ubuntu. In output, you should be able to access the web interface of the dashboard 
 
 ### 2. Installing Claude Desktop
 
