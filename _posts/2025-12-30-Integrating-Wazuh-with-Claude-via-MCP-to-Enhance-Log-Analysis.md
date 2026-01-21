@@ -25,7 +25,7 @@ In our demonstration, the architecture is based on:
 <img width="1919" height="952" alt="dashbord wazuh" src="https://github.com/user-attachments/assets/83db27a6-1077-40ae-98dd-da6253734223" />
 
 
-- **Claude Desktop**: Anthropic's desktop application for interacting with the Claude model (conversational AI). We install it on the same Ubuntu (Debian/Ubuntu version) to run the MCP agent locally. Once launched, Claude Desktop offers a user-friendly interface for asking questions in natural language.
+- **Claude Desktop version 14.10**: Anthropic's desktop application for interacting with the Claude model (conversational AI). We install it on the same Ubuntu (Debian/Ubuntu version) to run the MCP agent locally. Once launched, Claude Desktop offers a user-friendly interface for asking questions in natural language.
 
 <img width="1917" height="915" alt="claude desktop" src="https://github.com/user-attachments/assets/434e6ec9-e4d8-460b-8c61-a84dc49e4b56" />
 
@@ -96,15 +96,15 @@ This screenshot illustrates an automated Wazuh installation script on Ubuntu. In
 For Claude Desktop on Ubuntu/Debian, the simplest method is to download the .deb package from the GitHub page of the claude-desktop-debian project. For example, download the latest release:
 
 ````shell
-wget https://github.com/aaddrick/claude-desktop-debian/releases/download/vX.Y.Z/claude-desktop_X.Y.Z_amd64.deb
-sudo dpkg -i claude-desktop_X.Y.Z_amd64.deb
+wget https://github.com/aaddrick/claude-desktop-debian/releases/download/v1.1.10%2Bclaude0.14.10/claude-desktop_0.14.10_amd64.deb
+sudo dpkg -i claude-desktop_0.14.10_amd64.deb
 sudo apt --fix-broken install  # to install missing dependencies
 ````
 
 The documentation confirms this procedure with `dpkg -i` (see excerpt below) [github.com](https://github.com/aaddrick/claude-desktop-debian?tab=readme-ov-file#:~:text=For%20):
 For .deb packages:
 ````shell
-    #sudo dpkg -i ./claude-desktop_VERSION_ARCHITECTURE.deb 
+    #sudo dpkg -i ./claude-desktop_0.14.10_amd64.deb 
     sudo dpkg -i ./*.deb
     sudo apt --fix-broken install
 ``````
@@ -151,17 +151,17 @@ Modify it (or create it) to include an `mcpServers` block for Wazuh. For example
     "command": "/path/to/mcp-server-wazuh",
     "args": [],
     "env": {
-      "WAZUH_API_HOST": "your_wazuh_manager_api_host",
-      "WAZUH_API_PORT": "55000",
-      "WAZUH_API_USERNAME": "your_wazuh_api_user",
-      "WAZUH_API_PASSWORD": "your_wazuh_api_password",
-      "WAZUH_INDEXER_HOST": "your_wazuh_indexer_host",
-      "WAZUH_INDEXER_PORT": "9200",
-      "WAZUH_INDEXER_USERNAME": "your_wazuh_indexer_user",
-      "WAZUH_INDEXER_PASSWORD": "your_wazuh_indexer_password",
-      "WAZUH_VERIFY_SSL": "false",
-      "WAZUH_TEST_PROTOCOL": "https",
-      "RUST_LOG": "info"
+      "WAZUH_API_HOST": "YOUR_WAZUH_MANAGER_API_HOST_IP",  // Replace with your Wazuh manager API host IP
+      "WAZUH_API_PORT": "55000",                            // Default port for Wazuh API
+      "WAZUH_API_USERNAME": "YOUR_WAZUH_API_USER",         // Replace with your Wazuh API username
+      "WAZUH_API_PASSWORD": "YOUR_WAZUH_API_PASSWORD",     // Replace with your Wazuh API password
+      "WAZUH_INDEXER_HOST": "YOUR_WAZUH_INDEXER_HOST_IP",  // Replace with your Wazuh indexer host IP
+      "WAZUH_INDEXER_PORT": "9200",                         // Default port for Wazuh indexer
+      "WAZUH_INDEXER_USERNAME": "YOUR_WAZUH_INDEXER_USER", // Replace with your Wazuh indexer username
+      "WAZUH_INDEXER_PASSWORD": "YOUR_WAZUH_INDEXER_PASSWORD", // Replace with your Wazuh indexer password
+      "WAZUH_VERIFY_SSL": "false",                          // Set to true if using SSL
+      "WAZUH_TEST_PROTOCOL": "https",                       // Protocol to use (http or https)
+      "RUST_LOG": "info"                                    // Logging level (info, debug, etc.)
     }
   }
 }
