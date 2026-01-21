@@ -151,17 +151,17 @@ Modify it (or create it) to include an `mcpServers` block for Wazuh. For example
     "command": "/path/to/mcp-server-wazuh",
     "args": [],
     "env": {
-      "WAZUH_API_HOST": "YOUR_WAZUH_MANAGER_API_HOST_IP",  // Replace with your Wazuh manager API host IP
-      "WAZUH_API_PORT": "55000",                            // Default port for Wazuh API
-      "WAZUH_API_USERNAME": "YOUR_WAZUH_API_USER",         // Replace with your Wazuh API username
-      "WAZUH_API_PASSWORD": "YOUR_WAZUH_API_PASSWORD",     // Replace with your Wazuh API password
-      "WAZUH_INDEXER_HOST": "YOUR_WAZUH_INDEXER_HOST_IP",  // Replace with your Wazuh indexer host IP
-      "WAZUH_INDEXER_PORT": "9200",                         // Default port for Wazuh indexer
-      "WAZUH_INDEXER_USERNAME": "YOUR_WAZUH_INDEXER_USER", // Replace with your Wazuh indexer username
-      "WAZUH_INDEXER_PASSWORD": "YOUR_WAZUH_INDEXER_PASSWORD", // Replace with your Wazuh indexer password
-      "WAZUH_VERIFY_SSL": "false",                          // Set to true if using SSL
-      "WAZUH_TEST_PROTOCOL": "https",                       // Protocol to use (http or https)
-      "RUST_LOG": "info"                                    // Logging level (info, debug, etc.)
+      "WAZUH_API_HOST": "YOUR_WAZUH_MANAGER_API_HOST_IP",   
+      "WAZUH_API_PORT": "55000",                            
+      "WAZUH_API_USERNAME": "YOUR_WAZUH_API_USER",         
+      "WAZUH_API_PASSWORD": "YOUR_WAZUH_API_PASSWORD",    
+      "WAZUH_INDEXER_HOST": "YOUR_WAZUH_INDEXER_HOST_IP",  
+      "WAZUH_INDEXER_PORT": "9200",                         
+      "WAZUH_INDEXER_USERNAME": "YOUR_WAZUH_INDEXER_USER", 
+      "WAZUH_INDEXER_PASSWORD": "YOUR_WAZUH_INDEXER_PASSWORD", 
+      "WAZUH_VERIFY_SSL": "false",                          
+      "WAZUH_TEST_PROTOCOL": "https",                       
+      "RUST_LOG": "info"                                    
     }
   }
 }
