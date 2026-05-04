@@ -4,7 +4,7 @@ date: 2026-05-01 00:00:00 +0000
 categories: [Achievements, CTF Competitions]
 tags: [ecowas, ctf, jeopardy, koth, boot2root, redteam-tg, togo, west-africa, cybersecurity]
 image:
-  path: /assets/images/ecowas-2026/ecowas-cover.png
+  path: /assets/ecowas-2026/ecowas-cover.png
   alt: Official logo of the 2026 ECOWAS Regional Hackathon
 ---
 
@@ -22,7 +22,7 @@ The national qualifiers ran from April 1 to May 1, 2026, across three successive
 
 The first phase was a Jeopardy-style CTF on a shared global leaderboard, open to every ECOWAS country at the same time. 1,035 participants registered and formed 317 teams. Every country competed on the same board. Togo was not in a separate bracket; we were ranked alongside every team from every nation from day one.
 
-<img src="/assets/images/ecowas-2026/ecowas-registered.png" alt="The ECOWAS Hackathon 2026 platform showing 1,035 registered participants across all member states" style="border-radius: 10px; width: 65%;" />
+<img src="/assets/ecowas-2026/ecowas-registered.png" alt="The ECOWAS Hackathon 2026 platform showing 1,035 registered participants across all member states" style="border-radius: 10px; width: 65%;" />
 
 The challenge set covered 13 categories: Crypto, Discord, Forensics, Misc, Mobile, Network Forensics, OSINT, Pwn, Reverse Engineering, Steganography, and Web. We solved everything.
 
