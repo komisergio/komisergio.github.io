@@ -1,5 +1,5 @@
 ---
-title: "ECOWAS Regional Hackathon 2026: #1 in Togo across every phase"
+title: "ECOWAS Regional Hackathon 2026: 1 st in Togo across every phase"
 date: 2026-05-01 00:00:00 +0000
 categories: [Achievements, CTF Competitions]
 tags: [ecowas, ctf, jeopardy, koth, boot2root, redteam-tg, togo, west-africa, cybersecurity]
@@ -56,17 +56,17 @@ The target machine for this phase was `shambles.local`, accessible exclusively t
 echo "RedTeam-TG" > /root/team.txt
 ```
 
-One line. But keeping your name in that file across every reset is what the competition actually measures. Each reset triggers a race: whoever re-exploits the machine and writes their name first takes the tick. You cannot do that manually at competitive speed. You need scripts ready to fire the instant the machine comes back up.
+One line to claim, but holding it through every reset is what the competition truly tests. Each reset triggers an immediate race: the first team to re-exploit the machine and overwrite the file takes the tick. At that pace, manual execution is not an option. Winning requires automation, scripts preloaded and ready to fire the moment the machine comes back online.
 
 <img src="/assets/ecowas-2026/ecowas-p2-koth-details.png" alt="KOTH instance details: target IP 10.100.10.46, team.txt path, and tick scoring structure" style="border-radius: 10px; width: 65%;" />
 
-On top of attacking, you have to defend. Once you own the machine, you patch the vulnerability you just used, because every other team is trying the same entry point. Leave it open and someone overwrites your name. You are attacking and defending simultaneously, against live opponents, on a machine that resets every hour.
+Offense alone is not enough. The moment you claim the machine, you must also secure it, patching the exact vulnerability you exploited before another team uses it against you. Every competitor is working the same entry point, and leaving it open is an invitation to be displaced. The result is a continuous cycle of simultaneous attack and defense, played out against live opponents on a machine that resets every hour.
 
-We held control consistently. Final scores: RedTeam-TG **2,400 pts**, Government **1,700 pts**, L3arn3rs **1,200 pts**.
+RedTeam-TG maintained consistent control throughout the phase, finishing with a final score of **2,400 points** — well clear of Government in second place with **1,700 points** and L3arn3rs in third with **1,200 points**.
 
 <img src="/assets/ecowas-2026/ecowas-p2-koth-leaderboard.png" alt="Togo KOTH country leaderboard: RedTeam-TG in 1st place with 2,400 points, ahead of Government at 1,700 and L3arn3rs at 1,200" style="border-radius: 10px; width: 65%;" />
 
-**1st in Togo.** The top 2 teams advance to Phase 3. We went through in first.
+**1st in Togo.** With only the top 2 teams advancing to Phase 3, RedTeam-TG progressed as Togo's first-place representative.
 
 ---
 
@@ -74,11 +74,11 @@ We held control consistently. Final scores: RedTeam-TG **2,400 pts**, Government
 
 **8 participants. 2 Togolese teams. We placed 1st. We were the only team to score.**
 
-The final phase was a Boot2Root: one machine, two flags, find `user.txt` then `root.txt` as fast as possible. The format is unforgiving. Going too slow lets the other team finish first, but chasing the wrong path costs time you cannot get back.
+The final phase was a Boot2Root challenge: one machine, two objectives. Capture `user.txt`, then escalate to `root.txt`, all against the clock. The format leaves no margin for error. Moving too slowly risks being outpaced by the opposing team, while pursuing the wrong attack path burns time that cannot be recovered.
 
 <img src="/assets/ecowas-2026/ecowas-p3-battleground.png" alt="Togo BattleGround challenge page showing the Boot2Root format for Phase 3, April 30, 2026" style="border-radius: 10px; width: 65%;" />
 
-The machine was named **SeaFish**, worth 500 points. We solved it. The other qualified team, Government, did not score.
+The target machine was **SeaFish**, carrying a total value of 500 points. RedTeam-TG solved it in full. The other qualified team, Government, did not score.
 
 <img src="/assets/ecowas-2026/ecowas-p3-battleground-leaderboard.png" alt="Togo BattleGround final leaderboard: RedTeam-TG in 1st with 500 points, the only team to complete the Boot2Root challenge" style="border-radius: 10px; width: 65%;" />
 
@@ -90,14 +90,14 @@ Final leaderboard: RedTeam-TG **500 pts**, Government **0 pts**.
 
 ## The result
 
-We finished first in Togo at every phase of the national qualifier. In Phase 1 we also placed first across the entire continent, out of 1,035 registered participants from every ECOWAS country.
+RedTeam-TG finished first in Togo across every phase of the national qualifier. In Phase 1, we also ranked first across the entire continent, out of 1,035 registered participants representing every ECOWAS member state.
 
 RedTeam-TG is qualified for the ECOWAS Grand Final in Ghana.
 
-I will be honest about what that took. The Jeopardy phase required breadth: you had to perform across cryptography, web exploitation, forensics, binary exploitation, steganography, OSINT, and mobile security in a single session. The KOTH was a completely different kind of pressure: automation, reaction speed, and the ability to flip between offense and defense without losing your footing. The Boot2Root rewarded clean methodology and composure under time pressure. These three skill sets do not overlap much. Getting through all three phases in first place is not a coincidence.
+To be direct about what that required: the Jeopardy phase demanded breadth, the ability to perform across cryptography, web exploitation, forensics, binary exploitation, steganography, OSINT, and mobile security within a single session. The King of the Hill phase was a different challenge entirely, built on automation, reaction speed, and the capacity to shift between offense and defense without losing ground. The Boot2Root rewarded methodical thinking and composure under time pressure. These three skill sets share little overlap. Finishing first through all three phases is not a coincidence.
 
-Huge respect to all the team members. This was a collective result at every stage.
+Full credit to every member of the team. This was a collective result at every stage.
 
-To the Togolese teams who competed hard in Phase 1 (Government, FireTeam, L3arn3rs, Root Access TG): the level was high and that made the qualifier worth winning.
+To the Togolese teams who pushed hard in Phase 1, Government, FireTeam, L3arn3rs, and Root Access TG: the competition was fierce, and that is precisely what made it worth winning.
 
 See you in Ghana.
