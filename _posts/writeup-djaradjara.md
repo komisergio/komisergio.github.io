@@ -42,7 +42,6 @@ the stock exploit runs unchanged:
 
  ```python
  #!/usr/bin/env python3
-"""
 CVE-2026-33439 - OpenAM Pre-Auth RCE via jato.clientSession Deserialization
 
 Author    : TheMalwareGuardian
