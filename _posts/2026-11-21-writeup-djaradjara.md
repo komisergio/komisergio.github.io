@@ -40,8 +40,6 @@ The service serves the *same* gadget-chain artifacts the public exploit builds
 against (openam-core/xalan/serializer/click JARs, vendored in `deploy/jars/`), so
 the stock exploit runs unchanged:
 
-exploit :
-
 ```python
 #!/usr/bin/env python3
 CVE-2026-33439 - OpenAM Pre-Auth RCE via jato.clientSession Deserialization
