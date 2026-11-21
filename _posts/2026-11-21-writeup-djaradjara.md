@@ -1,9 +1,10 @@
 ---
 title: "NCTF-boot2root : Djaradjara writeup"
 date: 2026-11-21 00:00:00 +0000
-categories: [pentest ,Boot2root]
+categories: [pentest, boot2root]
 tags: [Pentesting,cybersecurity]
 ---
+{% raw %}
 
 
 # Djaradjara — writeup
@@ -661,3 +662,4 @@ starting with it (`/root/flag.txt`) — as a valid "restricted" root.
 | Foothold | `jato.clientSession` deserialized with a bare `ObjectInputStream` | class whitelist or signed sessions (the CVE-2021-35464 fix, applied to `jato.pageSession` only, must be applied to `jato.clientSession` too) |
 | Lateral | world-readable app config + same password in a plaintext DB | per-service secrets, rotate, no cred reuse between DB and ssh |
 | Privesc | `sudo` snippet ends in `*` and permits a duplicate `--restrict-path` | drop the trailing `*`; disallow repeated restrict options; use a non-overridable config 
+{% endraw %}
