@@ -3,15 +3,13 @@ title: "NCTF-boot2root : Djaradjara writeup"
 date: 2026-11-21 00:00:00 +0000
 categories: [pentest, boot2root]
 tags: [Pentesting,cybersecurity]
+description: "Boot2root writeup: pre-auth Java deserialization RCE on a JATO/OpenAM impersonation, GLPI config leak, and a sudo rdiff-backup restrict-path bypass."
 ---
 {% raw %}
 
-
-# Djaradjara — writeup
-
 Djaradjara boot2root box. Chain: **unauthenticated Java deserialization RCE →
-leaked DB creds → GLPIKey decrypt → ssh → sudo rdiff-backup restrict-path page /
-/read/root → root flag**.
+leaked DB creds → GLPIKey decrypt → ssh → sudo `rdiff-backup`
+`--restrict-path` override → root flag**.
 
 Target: `http://<IP>:PORT/` , ssh `-p PORT`.
 
@@ -602,7 +600,7 @@ module-access problem on the target JVM.
 
 ## 2. Lateral movement — leaked DB creds + GLPIKey decrypt
 
-From the web shell (user `openam`):
+From the RCE (user `openam`):
 
 ```bash
 # the GLPI-like config is world-readable
@@ -614,7 +612,7 @@ ls -la /opt/djaradjara/glpi/config/      # config.php, glpicrypt.key
 ls -la /opt/djaradjara/glpi/src/         # glpikey.php (GLPIKey decrypt helper)
 ```
 
-MySQL allows remote access via creds in `config.php`:
+MySQL is reachable with the creds from `config.php`:
 
 ```bash
 mysql -h127.0.0.1 -uglpi -p'8rhu0L6Pw4Y7' glpidb \
