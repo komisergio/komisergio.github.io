@@ -1,3 +1,11 @@
+---
+title: "NCTF-boot2root : Djaradjara writeup"
+date: 2026-11-21 00:00:00 +0000
+categories: [pentest ,Boot2root]
+tags: [Pentesting,cybersecurity]
+---
+
+
 # Djaradjara — writeup
 
 Djaradjara boot2root box. Chain: **unauthenticated Java deserialization RCE →
